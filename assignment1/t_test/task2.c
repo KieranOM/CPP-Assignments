@@ -29,6 +29,7 @@ float t_test(float *measurements1, int size1, float *measurements2, int size2)
 {
 	float t = 0;
 
+    // Process the two data sets, calculating median and discarding outliers
     float median1 = sort_and_find_median(measurements1, size1);
     int new_size1;
     float *measurements1_wo_outliers = discard_outliers(measurements1, size1, median1, &new_size1);
@@ -37,6 +38,7 @@ float t_test(float *measurements1, int size1, float *measurements2, int size2)
     int new_size2;
     float *measurements2_wo_outliers = discard_outliers(measurements2, size2, median2, &new_size2);
 
+    // Calculate the variance of both
     float mean1, variance1;
     mean_variance(measurements1_wo_outliers, new_size1, &mean1, &variance1);
 
@@ -48,6 +50,7 @@ float t_test(float *measurements1, int size1, float *measurements2, int size2)
 
     t = (mean1 - mean2) / standard_deviation_dif;
 
+    // Free the measurements without outliers
     free(measurements1_wo_outliers);
     free(measurements2_wo_outliers);
 
