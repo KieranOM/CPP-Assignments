@@ -81,11 +81,13 @@ Node* deleteNode(Node* root, int value)
 
 			// Check if trees need moving up
 			if (root->left == NULL) {
+				// Case where the node has no children, or no left child
 				// Move the right tree up
 				Node *temp = root->right;
 				free (root);
 				return temp;
 			} else if (root->right == NULL) {
+				// Case where there is no right child only
 				// Move the left tree up
 				Node *temp = root->left;
 				free (root);
