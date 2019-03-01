@@ -2,6 +2,7 @@
 
 - [Assignment 0 (GCD)](#assignment-0-gcd)
 - [Assignment 1 (T-Test)](#assignment-1-t-test)
+- [Assignment 2 (Trees)](#assignment-2-trees)
 
 ## Assignment 0 (GCD)
 
@@ -31,3 +32,48 @@ Write a function that discards outliers from measurements that are `< 0.5 * medi
 ### Task 2
 
 Compute the t-value from the values produced from the function in task 1.
+
+## Assignment 2 (Trees)
+
+A good way to understand the challenges of pointers and memory management is to implement tree data structures. A binary search tree will be implemented using the structure struct Node. 
+
+### Task 1
+
+```c
+Node* insertNode(Node *root, int value);
+```
+
+This function is used to insert a new node in the tree as a leaf node. The member ‘data’ of the new node is assigned the input ‘value’. During the insertion, a traversal starts from the root of the tree. The traversal follows the right branch if the value of the new node is greater than the value of the currently visited node. Otherwise the traversal follows the
+left branch. 
+
+### Task 2
+
+```c
+Node* deleteNode(Node *root, int value);
+```
+
+This function is used to delete an existing node in the tree. For this question we will restrict there to being unique data values (that is to say there will be no duplicates) for simplicity.
+
+### Task 3
+
+```c
+void printSubtree(Node *N);
+```
+
+This function is for Inorder printing of the node values. It prints i) the values in the left subtree ii) then the value of the node and iii) finally the values in the right subtree. The function prints the node values in sorted ascending format. 
+
+### Task 4
+
+```c
+int countNodes(Node *N);
+```
+
+This function returns the number of nodes in the subtree rooted at node N.
+
+### Task 5
+
+```c
+void freeSubtree(Node *N);
+```
+
+This function deallocates the entire subtree rooted at N. Here you will need to free each node exactly once, so that there are neither double frees nor memory leaks. Note that the tree could be empty, so freeSubtree() should work, but do nothing, as there are no nodes to free.
