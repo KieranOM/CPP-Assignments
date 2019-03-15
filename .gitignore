@@ -4,6 +4,7 @@
 !*/
 # Don't ignore files with extensions
 !*.*
-
+# Ignore temporary files
+*.*~
 # Ignore Assignment 1 files
 assignment1/t_test/measurements_wo_outliers.txt
