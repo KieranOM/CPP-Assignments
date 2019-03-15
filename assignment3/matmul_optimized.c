@@ -7,8 +7,28 @@
 */    
 void matmul_optimized(int n, int* A, int* B, int* C)
 {
+	int i, j, k;
+	int cij;
 
-	// Replace code here 
-	matmul_reference(n, A, B, C);
-	// with your optimized code
+	// Transpose A into A_t
+	int *A_t = malloc(n*n*sizeof(int));
+	for(i=0; i<n; i++)
+		for(j=0; j<n; j++)
+			A_t[i*n+j] = A[i+j*n];
+ 
+
+	// Matrix multiplication with:
+	// A_t in row-major order
+	// B, C in column-major order
+	for(i=0; i<n; ++i)
+	{	
+		for(j=0; j<n; ++j)
+   		{
+			cij = C[i+j*n];
+			for(k=0; k<n; ++k)
+            	cij+=A_t[i*n+k]*B[k+j*n];
+      		C[i+j*n] = mod2(cij);
+         }
+ 	}
+	free(A_t);
 }

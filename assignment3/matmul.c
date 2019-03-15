@@ -9,7 +9,8 @@
 
 int main(){
 	int i, j;
-	int n = 2048;	// Number of rows or columns in the square matrices
+	// int n = 2048;	// Number of rows or columns in the square matrices
+    int n = 512;
 	int *A, *B;		// Input matrices
 	int *C1, *C2;	// Output matrices from the reference and optimized implementations
 
