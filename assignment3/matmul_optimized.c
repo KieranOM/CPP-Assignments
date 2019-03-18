@@ -33,8 +33,8 @@ void matmul_optimized(int n, int* A, int* B, int* C) {
 	// Calculate the sizes needed for the compressed matrices
 	const int comp_width = n/64,
 			  size = n * comp_width * sizeof(long long);
-	long long *A_c = malloc(size), // n rows, 		n/64 columns
-			  *B_c = malloc(size); // n columns,	n/64 rows
+	long long *A_c = malloc(size),
+			  *B_c = malloc(size);
 
 	// Compress A and B into A_c and B_c respectively
 	int offset, comp_offset;
@@ -65,12 +65,15 @@ void matmul_optimized(int n, int* A, int* B, int* C) {
 			cij = C[index];
 			long long cij_temp = 0;
 			for(k=0; k<comp_width; ++k) {
+				// 64 bits
 				a_temp = A_c[i*comp_width+k];
 				b_temp = B_c[j*comp_width+k];
-				// Store result back in a_temp
+				// Bitwise and for multiplication of bits
 				a_temp = a_temp & b_temp;
+				// Bitwise xor for addition of bits
 				cij_temp ^= a_temp;
 			}
+			// Add the result to the previous value
       		C[index] = cij ^ parity(cij_temp);
          }
  	}
