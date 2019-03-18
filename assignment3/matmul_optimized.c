@@ -5,7 +5,7 @@
 */    
 
 // This function computes the parity of a given 64-bit number
-int parity(long long v) {
+inline int parity(long long v) {
 	v ^= v >> 1;
 	v ^= v >> 2;
 	v = (v & 0x1111111111111111UL) * 0x1111111111111111UL;
