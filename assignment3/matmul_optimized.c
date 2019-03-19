@@ -76,5 +76,9 @@ void matmul_optimized(int n, int * A, int * B, int * C) {
 			C[index] = cij ^ parity(cij_temp);
 		}
 	}
+
+	// Free the transposed matrix, then the compressed matrices
 	free(A_t);
+	free(A_c);
+	free(B_c);
 }
