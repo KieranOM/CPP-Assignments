@@ -26,6 +26,10 @@ void matmul_optimized(int n, int * A, int * B, int * C) {
 
 	// Transpose A into A_t
 	int * A_t = malloc(n * n * sizeof(int));
+	if (A_t == NULL) {
+		printf("Error allocating memory\n");
+		exit(-1);
+	}
 	for (i = 0; i < n; i++)
 		for (j = 0; j < n; j++)
 			A_t[i * n + j] = A[i + j * n];
@@ -35,6 +39,10 @@ void matmul_optimized(int n, int * A, int * B, int * C) {
 			  size = n * comp_width * sizeof(long long);
 	long long * A_c = malloc(size),
 			  * B_c = malloc(size);
+	if (A_c == NULL || B_c == NULL) {
+		printf("Error allocating memory\n");
+		exit(-1);
+	}
 
 	// Compress A and B into A_c and B_c respectively
 	int offset, comp_offset;
