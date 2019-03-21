@@ -3,6 +3,7 @@
 - [Assignment 0 (GCD)](#assignment-0-gcd)
 - [Assignment 1 (T-Test)](#assignment-1-t-test)
 - [Assignment 2 (Trees)](#assignment-2-trees)
+- [Assignment 3 (Optimisation)](#assignment-3-optimisation)
 
 ## Assignment 0 (GCD)
 
@@ -77,3 +78,12 @@ void freeSubtree(Node *N);
 ```
 
 This function deallocates the entire subtree rooted at N. Here you will need to free each node exactly once, so that there are neither double frees nor memory leaks. Note that the tree could be empty, so freeSubtree() should work, but do nothing, as there are no nodes to free.
+
+## Assignment 3 (Optimisation)
+In this exercise, you will be optimizing a program for multiplying two squarematrices over GF(2). We have provided a reference implementation of the program.
+
+GF(2) is the Galois field of the two elements: 0 and 1. Arithmetic operations in GF(2) are computed modulo 2, thus resulting in either 0 or 1. A matrix over GF(2) is a binary matrix containing only 0s and 1s. 
+
+We expect a minimum 5 factor speedup with respect to the reference implementation, 140+ speedup factor for full marks.
+
+
