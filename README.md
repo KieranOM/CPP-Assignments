@@ -4,6 +4,7 @@
 - [Assignment 1 (T-Test)](#assignment-1-t-test)
 - [Assignment 2 (Trees)](#assignment-2-trees)
 - [Assignment 3 (Optimisation)](#assignment-3-optimisation)
+- [Assignment 4 (Generic Array)](#assignment-4-generic-array)
 
 ## Assignment 0 (GCD)
 
@@ -87,3 +88,9 @@ GF(2) is the Galois field of the two elements: 0 and 1. Arithmetic operations in
 We expect a minimum 5 factor speedup with respect to the reference implementation, 140+ speedup factor for full marks.
 
 
+## Assignment 4 (Generic Array)
+A  C++  class  for  implementing  dynamic  array  of  integers  has  been  provided  in Array_int.cpp.
+
+Following the dynamic integer-array class from Array_int.cpp, write a generic C++ class  template  in  Array_generic.cpp  file  for  implementing  dynamic  arrays  of  any data-type, e.g. int, float etc.
+
+Note that some of the member functions are not defined in the Array_int.cpp file. You will need to define them in your generic program.
